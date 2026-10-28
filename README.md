@@ -18,7 +18,7 @@ This project explores two related problems:
 
 ![features](screenshots/features.png)
 
-![attacks_per_hour](screenshots/attacks_per_hour.png)
+![attacks_per_hour](screenshots/attack_per_hour.png)
 
 ## Features
 
