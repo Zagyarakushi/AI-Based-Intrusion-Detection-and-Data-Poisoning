@@ -134,6 +134,6 @@ This project is intended for educational and research purposes. Experiments invo
 
 ## Author
 
-**Charles Buckley**
-
 GitHub: [@zagyarakushi](https://github.com/zagyarakushi)
+GitLab: [@zagyarakushi](https://gitlab.com/zagyarakushi)
+
