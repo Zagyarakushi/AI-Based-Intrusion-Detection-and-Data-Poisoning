@@ -14,6 +14,12 @@ This project explores two related problems:
 - **Intrusion detection:** Training and evaluating machine learning classifiers on network security data.
 - **Data poisoning:** Simulating label manipulation to investigate how corrupted training data can affect detection performance.
 
+![matrix](screenshots/matrix.png)
+
+![features](screenshots/features.png)
+
+![attacks_per_hour](screenshots/attacks_per_hour.png)
+
 ## Features
 
 - Data loading, exploration and preprocessing using pandas and NumPy.
