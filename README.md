@@ -1,93 +1,133 @@
-# AI-Based-Intrusion-Detection-and-Data-Poisoning
 
+# AI-Based Intrusion Detection and Data Poisoning
 
+A machine learning project exploring network intrusion detection and the impact of data-poisoning attacks on classification models.
 
-## Getting started
+The project uses the Edge-IIoTset cybersecurity dataset to investigate how machine learning can distinguish between normal network activity and malicious traffic, evaluate different classification algorithms, and examine how manipulated training labels can affect model performance.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Overview
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Intrusion detection systems help identify suspicious activity in networks and connected devices. Machine learning offers a way to detect patterns in network traffic, but the reliability of these systems depends on the quality and integrity of their training data.
 
-## Add your files
+This project explores two related problems:
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+- **Intrusion detection:** Training and evaluating machine learning classifiers on network security data.
+- **Data poisoning:** Simulating label manipulation to investigate how corrupted training data can affect detection performance.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/zagyarakushi/ai-based-intrusion-detection-and-data-poisoning.git
-git branch -M main
-git push -uf origin main
-```
+## Features
 
-## Integrate with your tools
+- Data loading, exploration and preprocessing using pandas and NumPy.
+- Feature encoding and scaling where appropriate.
+- Training and comparison of multiple machine learning classifiers.
+- Evaluation using classification metrics and confusion matrices.
+- Feature importance analysis to investigate which inputs influence model predictions.
+- Simulated label-poisoning experiments to explore model robustness.
+- Comparison of model behaviour under different training-data conditions.
 
-* [Set up project integrations](https://gitlab.com/zagyarakushi/ai-based-intrusion-detection-and-data-poisoning/-/settings/integrations)
+## Dataset
 
-## Collaborate with your team
+The project uses **Edge-IIoTset**, a dataset developed for cybersecurity research involving Industrial Internet of Things (IIoT) environments.
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+The dataset contains network traffic and attack-related data suitable for investigating intrusion detection and machine learning-based security approaches.
 
-## Test and Deploy
+Dataset source: [Edge-IIoTset](https://ieee-dataport.org/documents/edge-iiotset-new-comprehensive-realistic-cyber-security-dataset-iot-and-iiot-applications)
 
-Use the built-in continuous integration in GitLab.
+Refer to the dataset's documentation and original research for details about its collection, features, attack categories and intended use.
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+> The dataset is used for academic experimentation. Results on a benchmark dataset do not necessarily represent performance on live networks.
 
-***
+## Machine Learning Models
 
-# Editing this README
+The project explores the following classification algorithms:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+- K-Nearest Neighbours (KNN)
+- Random Forest
+- Stochastic Gradient Descent (SGD) classifier
+- Multi-Layer Perceptron (MLP)
 
-## Suggestions for a good README
+The models provide different approaches to learning patterns in network data, from distance-based classification to ensemble learning and neural networks.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Methodology
 
-## Name
-Choose a self-explaining name for your project.
+### 1. Data preprocessing
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+The dataset is prepared for machine learning through appropriate feature processing, encoding of categorical variables and scaling where required by the selected algorithms.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### 2. Model training
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+The selected classifiers are trained on the prepared data to learn patterns associated with normal and malicious network activity.
+
+### 3. Model evaluation
+
+Model performance is assessed using classification metrics and confusion matrices. These help examine overall performance as well as the types of classification errors made by each model.
+
+### 4. Feature importance
+
+Feature importance analysis is used to investigate which input features contribute to model predictions. The interpretation depends on the model and the feature-importance method used.
+
+### 5. Data-poisoning experiments
+
+Training labels are deliberately manipulated to simulate a data-poisoning scenario. The resulting models are evaluated to investigate whether corrupted labels affect classification performance.
+
+The experiment focuses on the effects of the simulated manipulation; it does not establish resistance to every type of poisoning attack.
+
+## Evaluation
+
+The project uses classification metrics such as:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion matrices
+
+For intrusion detection, accuracy alone can be misleading, particularly when classes are imbalanced. Precision and recall help provide a more detailed view of false alarms and missed attacks.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/zagyarakushi/AI-Based-Intrusion-Detection-and-Data-Poisoning.git
+cd AI-Based-Intrusion-Detection-and-Data-Poisoning
+```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Open the project's notebook and execute the cells in order.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Limitations
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- Results depend on the dataset, preprocessing choices, class distribution and evaluation methodology.
+- Benchmark performance does not guarantee effectiveness against previously unseen attacks or real-world network traffic.
+- Simulated label poisoning represents a particular experimental scenario rather than the full range of possible data-poisoning attacks.
+- Feature importance indicates relationships learned by a model and does not necessarily establish causation.
+- Model comparisons are meaningful only when the evaluation procedures and data splits are appropriately controlled.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+## Future Improvements
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+- Evaluate robustness across different poisoning rates and attack strategies.
+- Compare performance before and after data poisoning.
+- Investigate class imbalance and per-attack detection performance.
+- Test generalisation using separate or previously unseen data.
+- Explore additional intrusion detection models and explainability techniques.
+- Improve reproducibility through documented configurations, fixed random seeds and automated experiments.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Technologies
 
-## License
-For open source projects, say how it is licensed.
+- Python
+- pandas
+- NumPy
+- scikit-learn
+- Matplotlib / Seaborn, if used
+- Jupyter Notebook, if used
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Disclaimer
+
+This project is intended for educational and research purposes. Experiments involving data poisoning are conducted to study machine learning robustness and should not be interpreted as a guarantee of security in operational intrusion detection systems.
+
+## Author
+
+**Charles Buckley**
+
+GitHub: [@zagyarakushi](https://github.com/zagyarakushi)
